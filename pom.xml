@@ -5,13 +5,22 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.vatit.icodejava_conf</groupId>
-    <artifactId>com.vatit.icodejava_conf</artifactId>
+    <artifactId>spring-jpa-conf</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.3.6.RELEASE</version>
+    </parent>
 
     <modules>
         <module>query_dsl</module>
         <module>specification</module>
         <module>stream</module>
+        <module>standard</module>
     </modules>
 
     <contributors>
@@ -20,6 +29,25 @@
             <name>Steven Ndaye</name>
         </contributor>
     </contributors>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
 
 
 </project>
