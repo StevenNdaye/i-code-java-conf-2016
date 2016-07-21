@@ -15,7 +15,7 @@ import static org.hibernate.jpa.QueryHints.HINT_FETCH_SIZE;
 @Repository
 public interface EmployeeRepository extends CrudRepository<Employee, Integer> {
     @QueryHints(value = @QueryHint(name = HINT_FETCH_SIZE, value = "" + Integer.MIN_VALUE))
-    @Query(value = "select e from Employee e")
+    @Query(value = "SELECT e FROM employees e")
     Stream<Employee> streamAll();
 
 

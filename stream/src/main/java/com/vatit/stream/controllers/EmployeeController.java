@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
-import java.util.stream.Stream;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(value = "/employees")
@@ -21,22 +22,23 @@ public class EmployeeController {
     private EmployeeRepository employeeRepository;
 
     @RequestMapping(method = RequestMethod.GET)
-    public Stream<Employee> getEmployees() {
-        return employeeRepository.streamAll();
+    public List<Employee> getEmployees() {
+        return employeeRepository.streamAll().collect(Collectors.toList());
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/by")
-    public Stream<Employee> getEmployeesByGender(@RequestParam Gender gender) {
-        return employeeRepository.findAllByGenderOrderByBirthDateDesc(gender);
+    public List<Employee> getEmployeesByGender(@RequestParam Gender gender) {
+        return employeeRepository.findAllByGenderOrderByBirthDateDesc(gender)
+                .collect(Collectors.toList());
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/filter")
-    public Stream<Employee> filterEmployees(@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date bornFrom,
-                                            @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date bornTo) {
-        Stream<Employee> employees = employeeRepository.streamAll().filter(
+    public List<Employee> filterEmployees(@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date bornFrom,
+                                          @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date bornTo) {
+        return employeeRepository.streamAll().filter(
                 d -> d.getBirthDate().after(bornFrom)
                         &&
-                        d.getBirthDate().before(bornTo));
-        return employees;
+                        d.getBirthDate().before(bornTo))
+                .collect(Collectors.toList());
     }
 }
