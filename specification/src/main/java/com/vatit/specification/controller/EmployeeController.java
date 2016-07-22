@@ -17,6 +17,7 @@ import java.util.List;
 import static com.vatit.specification.repository.EmployeeRepository.Specs.birthDateIsBefore;
 import static com.vatit.specification.repository.EmployeeRepository.Specs.birthDateIsBetween;
 import static com.vatit.specification.repository.EmployeeRepository.Specs.firstNameIs;
+import static com.vatit.specification.repository.EmployeeRepository.Specs.genderIs;
 import static com.vatit.specification.repository.EmployeeRepository.Specs.hireDateIsAfter;
 import static com.vatit.specification.repository.EmployeeRepository.Specs.hireDateIsBetween;
 import static com.vatit.specification.repository.EmployeeRepository.Specs.lastNameIs;
@@ -55,14 +56,21 @@ public class EmployeeController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/female")
     public List<Employee> filterByFemale(@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date bornBefore) {
-        return employeeRepository.findByGender(Gender.F,
-                where(birthDateIsBefore(bornBefore)), orderByBirthDateAsc());
+
+        return employeeRepository.findAll(
+                where(birthDateIsBefore(bornBefore))
+                        .and(genderIs(Gender.F)),
+                orderByBirthDateAsc()
+        );
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/male")
     public List<Employee> filterByMale(@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date hiredAfter) {
-        return employeeRepository.findByGender(Gender.M,
-                where(hireDateIsAfter(hiredAfter)), orderByHireDateDesc());
+        return employeeRepository.findAll(
+                where(hireDateIsAfter(hiredAfter))
+                        .and(genderIs(Gender.M)),
+                orderByHireDateDesc()
+        );
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/employee")
