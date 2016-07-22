@@ -36,8 +36,8 @@ public class CustomerController {
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/predicate")
-    public Customer getCustomer(@QuerydslPredicate(root = Customer.class) Predicate predicate) {
-        return customerRepository.findOne(predicate);
+    public List<Customer> getCustomer(@QuerydslPredicate(root = Customer.class) Predicate predicate) {
+        return (List<Customer>) customerRepository.findAll(predicate);
     }
 
 

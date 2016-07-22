@@ -1,7 +1,7 @@
 package com.vatit.querydsl.entities;
 
 public enum Status {
-    ACTIVE(0), INACTIVE(1);
+    ACTIVE(1), INACTIVE(0);
 
     private int status;
 
