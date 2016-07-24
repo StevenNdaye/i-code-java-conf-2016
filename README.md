@@ -16,8 +16,8 @@ This project has 4 modules:
    Go to this github repo: https://github.com/datacharmer/test_db
    It has all the instructions on how to install this large dataset.
    Per default, it runs on port 8082. Below are the different endpoints:
-   * localhost:8082/employees/by?bornFrom=1957-01-01&bornTo=1960-01-01&hiredFrom=1980-01-01&hiredTo=1990-01-01
-   * localhost:8082/employees (NB. Use this with caution, it will load the entire employees data set)
+   * [localhost:8082/employees/by?bornFrom=1957-01-01&bornTo=1960-01-01&hiredFrom=1980-01-01&hiredTo=1990-01-01]
+   * [localhost:8082/employees] (NB. Use this with caution, it will load the entire employees data set)
    * localhost:8082/employees/female?bornBefore=1962-01-01
    * localhost:8082/employees/male?hiredAfter=1990-01-01
    * localhost:8082/employees/employee?firstName=Gino&lastName=Usery&bornBefore=1960-01-01&hiredAfter=1990-01-01
