@@ -48,6 +48,8 @@ public class EmployeeController {
                                                        @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date bornTo,
                                                        @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date hiredFrom,
                                                        @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date hiredTo) {
+
+
         return employeeRepository.findAll(
                 where(birthDateIsBetween(bornFrom, bornTo))
                         .and(hireDateIsBetween(hiredFrom, hiredTo))
