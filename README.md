@@ -43,9 +43,17 @@ This project has 4 modules:
 
 The typical way of running these maven projects:
 
+   ```
    mvn clean compile
+   ```
+
+   ```
    mvn package
+   ```
+
+   ```
    mvn spring-boot:run
+   ```
 
 Run these commands under every module.
 
