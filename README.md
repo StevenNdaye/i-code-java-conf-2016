@@ -41,6 +41,12 @@ This project has 4 modules:
    * localhost:8083/employees/filter?bornFrom=1958-01-01&bornTo=1961-01-01
 
 
+The typical way of running these maven projects:
+   mvn clean compile
+   mvn package
+   mvn spring-boot:run
+Run these commands under every module.
+
 Voila!
 
 Make a pull request if you have changes to make.
