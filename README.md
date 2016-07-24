@@ -6,9 +6,9 @@ This project has 4 modules:
    The project itself is built with Spring boot.
    There is data.sql under resources with preload some information into H2, the in-memory database used for this project.
    Per default, it runs on port 8080. Below are the different endpoints:
-   * [localhost:8080/customers]
-   * [localhost:8080/customers/by?firstName=Steven&lastName=Ndaye]
-   * [localhost:8080/customers/status?lastName=Ndaye&statuses=GOOD_STANDING,DEBT]
+   * [localhost:8080/customers](localhost:8080/customers)
+   * [localhost:8080/customers/by?firstName=Steven&lastName=Ndaye](localhost:8080/customers/by?firstName=Steven&lastName=Ndaye)
+   * [localhost:8080/customers/status?lastName=Ndaye&statuses=GOOD_STANDING,DEBT](localhost:8080/customers/status?lastName=Ndaye&statuses=GOOD_STANDING,DEBT)
 
 2. Specification: in this module we showcase how Specification API enhances Spring Data JPA by giving us a better way to query data.
    The project uses employees database loaded within mysql database.
@@ -17,7 +17,7 @@ This project has 4 modules:
    It has all the instructions on how to install this large dataset.
    Per default, it runs on port 8082. Below are the different endpoints:
    * [localhost:8082/employees/by?bornFrom=1957-01-01&bornTo=1960-01-01&hiredFrom=1980-01-01&hiredTo=1990-01-01]
-   * [localhost:8082/employees] (NB. Use this with caution, it will load the entire employees data set)
+   * [localhost:8082/employees](localhost:8082/employees) (NB. Use this with caution, it will load the entire employees data set)
    * [localhost:8082/employees/female?bornBefore=1962-01-01]
    * [localhost:8082/employees/male?hiredAfter=1990-01-01]
    * [localhost:8082/employees/employee?firstName=Gino&lastName=Usery&bornBefore=1960-01-01&hiredAfter=1990-01-01]
