@@ -34,4 +34,10 @@ public class CustomerController {
     public List<Customer> getCustomer(@RequestParam String firstName, @RequestParam String lastName) {
         return customerRepository.findByFirstNameAndLastNameOrderByEnrollmentDesc(firstName, lastName);
     }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/filter")
+    public List<Customer> getCustomerByCityName(@RequestParam String cityName) {
+        //This is a fake method to showcase the consumer/provider behavior
+        return (List<Customer>) customerRepository.findAll();
+    }
 }
